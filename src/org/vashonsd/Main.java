@@ -9,16 +9,16 @@ public class Main {
         System.out.println(binarySearch(nums,0,nums.length-1,45));
         System.out.println(binarySearch(nums,0,nums.length-1,27));
     }
-    public static int binarySearch(int[] nums, int l, int r, int x){
-        if(r>=l){
-            int mid = l + (r-l) / 2;
+    public static int binarySearch(int[] nums, int min, int max, int x){
+        if(max>=min){
+            int mid = min + (max-min) / 2;
             if(nums[mid]==x){
                 return mid;
             }
             if(nums[mid]>x){
-                return binarySearch(nums,l,mid-1,x);
+                return binarySearch(nums,min,mid-1,x);
             }
-            return binarySearch(nums,mid+1,r,x);
+            return binarySearch(nums,mid+1,max,x);
         }
         return -1;
     }
